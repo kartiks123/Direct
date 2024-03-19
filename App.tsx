@@ -1,118 +1,71 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const App = () => {
+  const users = [
+    { id: 1, name: "Kartik" },
+    { id: 2, name: "Anil" },
+    { id: 3, name: "Ankush" },
+    { id: 4, name: "Sanjay" },
+    { id: 5, name: "Swaraj" },
+    { id: 6, name: "John" },
+    { id: 7, name: "Doe" },
+    { id: 8, name: "Jane" },
+    { id: 9, name: "Michael" },
+    { id: 10, name: "Jessica" },
+    { id: 11, name: "David" },
+    { id: 12, name: "Jennifer" },
+    { id: 13, name: "Emily" },
+    { id: 14, name: "Daniel" },
+    { id: 15, name: "Matthew" },
+    { id: 16, name: "Laura" },
+    { id: 17, name: "Robert" },
+    { id: 18, name: "Sarah" },
+    { id: 19, name: "Mark" },
+    { id: 20, name: "Michelle" },
+    { id: 21, name: "James" },
+    { id: 22, name: "Amanda" },
+    { id: 23, name: "Christopher" },
+    { id: 24, name: "Amy" },
+    { id: 25, name: "Brian" },
+    { id: 26, name: "Nicole" },
+    { id: 27, name: "Justin" },
+    { id: 28, name: "Stephanie" },
+    { id: 29, name: "Kevin" },
+    { id: 30, name: "Melissa" }
+  ];
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff']; // Add more colors as needed
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+    <View>
+      <Text style={{ fontSize: 31 }}>Grid with Dynamic Data</Text>
+      <ScrollView>
+        <View style={{ flex: 1 , flexDirection:'row', flexWrap:'wrap'}}>
+          {
+            users.map((item, index)=>
+              <Text key={item.id} style={[styles.item, {backgroundColor: colors[index % colors.length]}]}>
+                {item.name}
+              </Text>
+            )
+          }
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
+const styles=StyleSheet.create({
+  item: {
+    fontSize: 20,
+    color: 'white',
+    margin: 5,
+    padding: 5,
+    width: 120,
+    height: 120,
+    textAlignVertical:'center',
+    textAlign:'center'
+  }
 });
 
 export default App;
