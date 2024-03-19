@@ -2,7 +2,7 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 My Screenshot :
 
-![Uploading Screenshot 2024-03-19 181344.png…]()
+![Screenshot 2024-03-19 181344](https://github.com/kartiks123/Direct/assets/78920624/53590d83-9361-49f0-9423-7389fe74a51e)
 
 
 # Getting Started
